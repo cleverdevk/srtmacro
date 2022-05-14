@@ -9,6 +9,9 @@ function macro() {
 	firstSelected = [].map.call(document.querySelectorAll('.firstMacro:checked'), function (select) {
 		return select.value;
 	});
+	waitSelected = [].map.call(document.querySelectorAll('.waitMacro:checked'), function (select) {
+		return select.value;
+	});
 
 	if (coachSelected.length == 0 && firstSelected.length == 0) {
 		alert("매크로를 실행하기 위해서는 예매하기 위한 열차 1개 이상을 선택하십시오.");
@@ -18,6 +21,8 @@ function macro() {
 		sessionStorage.setItem('macro', true);
 		sessionStorage.setItem('coachSelected', JSON.stringify(coachSelected));
 		sessionStorage.setItem('firstSelected', JSON.stringify(firstSelected));
+		sessionStorage.setItem('waitSelected', JSON.stringify(waitSelected));
+
 
 		// Stores user preferences.
 		sessionStorage.setItem('psgInfoPerPrnb1', document.getElementsByName('psgInfoPerPrnb1')[0].value);
