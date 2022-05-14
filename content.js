@@ -34,11 +34,14 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 
 		// Inserts the macro button into the table.
 		if ($("#search-list").length != 0) {
-			var rows = $('#search-list table tr');
-			for (i = 1; i < rows.length; i++) {
+			var rows = $('#search-list #result-form div.tbl_wrap.th_thead table tbody tr');
+			for (i = 0; i < rows.length; i++) {
+				console.log("i: "+ i);
 				var columns = $(rows[i]).children('td');
 				var first = $(columns[5]);
 				var coach = $(columns[6]);
+				console.log(coach.children);
+				console.log(first.children);
 				if (coach.children().length > 0) {
 					coach.append($("<p class='p5'></p>"));
 					var checkbox = $("<label></label>").html('<input type="checkbox" name="checkbox" class="coachMacro" value="' + i + '"> 매크로');
@@ -69,7 +72,7 @@ if (document.URL.substring(0, dsturl1.length) == dsturl1) {
 				console.log(rows)
 
 				var succeed = false;
-				for (i = 1; i < rows.length; i++) {
+				for (i = 0; i < rows.length; i++) {
 					var columns = $(rows[i]).children('td');
 
 					var first = $(columns[5]);
